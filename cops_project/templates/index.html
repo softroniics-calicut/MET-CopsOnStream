@@ -1,0 +1,271 @@
+{% load static %}
+<!DOCTYPE HTML>
+
+<!--
+	ZeroFour by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Cops On Stream</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+</head>
+
+<body class="homepage is-preload">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<div id="header-wrapper">
+			<!--					<div class="container">-->
+
+			<!-- Header -->
+			<header id="header">
+				<div class="inner">
+
+					<!-- Logo -->
+					<h1><a href="index.html" id="logo">Cops On Stream</a></h1>
+
+					<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li class="current_page_item"><a href="/">Home</a></li>
+							<!--												<li>-->
+							<!--													<a href="#">Dropdown</a>-->
+							<!--													<ul>-->
+							<!--														<li><a href="#">Lorem ipsum dolor</a></li>-->
+							<!--														<li><a href="#">Magna phasellus</a></li>-->
+							<!--														<li>-->
+							<!--															<a href="#">Phasellus consequat</a>-->
+							<!--															<ul>-->
+							<!--																<li><a href="#">Lorem ipsum dolor</a></li>-->
+							<!--																<li><a href="#">Phasellus consequat</a></li>-->
+							<!--																<li><a href="#">Magna phasellus</a></li>-->
+							<!--																<li><a href="#">Etiam dolore nisl</a></li>-->
+							<!--															</ul>-->
+							<!--														</li>-->
+							<!--														<li><a href="#">Veroeros feugiat</a></li>-->
+							<!--													</ul>-->
+							<!--												</li>-->
+							<li><a href="register">Registration</a></li>
+							<li><a href="{% url 'police_register' %}">Police Registration</a></li>
+
+							<li><a href="login">Login</a></li>
+						</ul>
+					</nav>
+
+				</div>
+			</header>
+
+			<!-- Banner -->
+			<div id="banner" style="margin-bottom:90px;">
+				<h2><strong>we protect and serve our citizen
+					</strong></h2>
+				<a href="register" class="button large icon solid fa-check-circle">Have a Complaint? Register Here</a>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Main Wrapper -->
+	<!--				<div id="main-wrapper">-->
+	<div class="wrapper style2">
+		<div class="inner">
+
+			<!-- Feature 2 -->
+
+		</div>
+	</div>
+	<div class="wrapper style3">
+		<div class="inner">
+			<div class="container">
+				<div class="row">
+					<div class="col-8 col-12-medium">
+
+						<!-- Article list -->
+						<section class="box article-list">
+							<h2 class="icon fa-file-alt">About your safety</h2>
+
+							<!-- Excerpt -->
+							<article class="box excerpt">
+								<a href="#" class="image left"><img style="height:200px; width:300px;"
+										src="{% static 'images/welcome.jpg' %}" alt="" /></a>
+								<div>
+									<header>
+										<span class="date">July 24</span>
+										<h3><a href="#">Home safety</a></h3>
+									</header>
+									<p>Learn about how to stay safe at your home.
+										Always lock the door behind you.
+										If you have to unlock an outside door when you get home always have the key
+										ready before you get to the door.
+										Do not open a door for any stranger.
+										Call the police at 911 if a stranger tries to talk you into opening the door.
+										If you are home alone keep the radio or television on.
+										Never tell anyone you are home alone.Learn about how to stay safe at your home.
+									</p>
+								</div>
+							</article>
+
+							<!-- Excerpt -->
+							<article class="box excerpt">
+								<a href="#" class="image left"><img style="height:200px; width:300px;"
+										src="{% static 'images/security.jpg' %}" alt="" /></a>
+								<div>
+									<header>
+										<span class="date">July 18</span>
+										<h3><a href="#">Safety Tips for Pedestrians</a></h3>
+									</header>
+									<p>
+
+										Carry a purse close to your body, not dangling by the straps.
+										Put a wallet in an inside coat or front pants pocket, not a back pocket.
+										Don't wear shoes or clothing that restrict your movements.
+										Have your car or house key in hand before you reach the door.
+										Know your full name, address (including state), and telephone number with the
+										area code. Know your parents’ or guardians’ names, too.
+										If anyone tries to move or hurt you, make sure you scream, kick, fight, and
+										yell, “You’re not my dad (or mom)!”
+										If you find a gun, do not touch it. Leave it alone and tell someone. If a friend
+										wants you to touch or hold it, say no!
+										Have your mom or dad walk with you the first few days of school to pick out the
+										safest route.</p>
+								</div>
+							</article>
+
+							<!-- Excerpt -->
+							<article class="box excerpt">
+								<a href="#" class="image left"><img style="height:200px; width:300px;"
+										src="{% static 'images/service2.jpg' %}" alt="" /></a>
+								<div>
+									<header>
+										<span class="date">July 14</span>
+										<h3><a href="#">Bicycle safety</a></h3>
+									</header>
+									<p>
+
+										Always wear a bicycle helmet.
+										If you must ride at night or low light, always use both a front and rear light
+										and reflector.
+										Always wear bright clothing, such as yellow or fluorescent colors (days) and
+										retro-reflective materials (nights).
+										Keep your brakes in good working order. Be able to stop in 15 feet at 10 miles
+										per hour.
+										Carry parcels in a backpack, bike rack, basket, or trailer.
+										Obey all traffic laws, signs, and signals.
+										Ride on the right side of the road with traffic.
+										Do not wear headphones while riding a bicycle.
+
+									</p>
+								</div>
+							</article>
+
+						</section>
+					</div>
+					<div class="col-4 col-12-medium">
+
+						<!-- Spotlight -->
+						<section class="box spotlight">
+							<h2 class="icon fa-file-alt">About Us</h2>
+							<article>
+								<a href="#" class="image featured"><img src="{% static 'images/guards.jpg' %}"
+										alt=""></a>
+								<header>
+									<h3><a href="#">We are committed to delivering the highest degree of professional
+											police services in India</a></h3>
+									<p>The pros and cons. Mostly cons.</p>
+								</header>
+								<p>The CopsStream Police is one of the largest, most highly regarded law enforcement
+									agencies in the state. In operation since 1948, the Cops Stream department is an
+									elite team of divers, boat operators, and bomb squad divers who have participated in
+									the investigations of numerous underwater and land crime scenes, as well as homeland
+									security sweeps.
+
+
+
+									Our mission is to promote an atmosphere of partnership with the community, working
+									together toward the common goal of protecting life and property. We are determined
+									to enhance the overall quality of life through mutual trust, respect, and the fair
+									and equitable enforcement of the laws while carefully safeguarding the dignity of
+									all.</p>
+
+							</article>
+						</section>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--				</div>-->
+
+	<!-- Footer Wrapper -->
+	<div id="footer-wrapper">
+		<footer id="footer" class="container">
+			<div class="row">
+
+
+				<div class="col-6 ">
+
+					<!-- About -->
+
+
+					<!-- Contact -->
+					<section>
+						<h2>Get in touch</h2>
+						<div>
+							<div class="row">
+								<div class="col-6 col-12-small">
+									<dl class="contact">
+										<dt>Twitter</dt>
+										<dd><a href="#">@twitter-corp</a></dd>
+										<dt>Facebook</dt>
+										<dd><a href="#">facebook.com</a></dd>
+										<dt>Email</dt>
+										<dd><a href="#">copsstream@gmail.com</a></dd>
+									</dl>
+								</div>
+								<div class="col-6 col-12-small">
+									<dl class="contact">
+										<dt>Address</dt>
+										<dd>
+											1234 Fictional Rd<br />
+											Nashville, TN 00000-0000<br />
+											India
+										</dd>
+										<dt>Phone</dt>
+										<dd>(000) 000-0000</dd>
+									</dl>
+								</div>
+							</div>
+						</div>
+					</section>
+
+				</div>
+				<div class="col-6">
+					<div id="copyright">
+						<ul class="menu">
+							<li>&copy; copsstream. All rights reserved</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/jquery.dropotron.min.js' %}"></script>
+	<script src="{% static 'js/browser.min.js' %}"></script>
+	<script src="{% static 'js/breakpoints.min.js' %}"></script>
+	<script src="{% static 'js/util.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

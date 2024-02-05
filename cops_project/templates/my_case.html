@@ -1,0 +1,238 @@
+
+
+
+
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+	<head>
+    		<style>
+
+    .container{
+        text-align: center;
+    }
+    td{
+      border-bottom: 1px solid white!important;
+      padding-bottom:10px!important;
+      padding-top:10px!important;
+    }
+</style>
+
+		<title>Left Sidebar - ZeroFour by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    
+	</head>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+@import url('//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css');
+body {
+  color: white;
+  background:#293949;
+  font-family: 'Open Sans',sans-serif;
+  padding: 0;
+  margin: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+.sidebar-toggle {
+  margin-left: -240px;
+}
+.sidebar {
+  width: 240px;
+  height: 100%;
+  background: #293949;
+  position: absolute;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  z-index: 100;
+  #leftside-navigation {
+    ul, ul ul {
+      margin: -2px 0 0;
+      padding: 0;
+    }
+    ul {
+      li {
+        list-style-type: none;
+        border-bottom: 1px solid rgba(255,255,255,.05);
+        &.active {
+          & > a {
+            color:#1abc9c;
+          }
+          ul {
+            display: block;
+          }
+        }
+        a {
+          color:#aeb2b7;
+          text-decoration: none;
+          display: block;
+          padding: 18px 0 18px 25px;
+          font-size: 12px;
+          outline: 0;
+          -webkit-transition: all 200ms ease-in;
+          -moz-transition: all 200ms ease-in;
+          -o-transition: all 200ms ease-in;
+          -ms-transition: all 200ms ease-in;
+          transition: all 200ms ease-in;
+          &:hover {
+            color:#1abc9c;
+          }
+          span {
+            display: inline-block;
+          }
+          i {
+            width: 20px;
+            .fa-angle-left, .fa-angle-right {
+              padding-top: 3px;
+            }
+          }
+        }
+      }
+    }
+    ul ul {
+      display: none;
+      li {
+        background: #23313f;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        border-bottom: none;
+        a {
+          font-size: 12px;
+          padding-top: 13px;
+          padding-bottom: 13px;
+          color:#aeb2b7;
+        }
+      }
+    }
+  }
+}
+    </style>
+	<body class="left-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header Wrapper -->
+				<div >
+					<div class="container">
+
+						<!-- Header -->
+							<header id="header">
+								<div class="inner">
+
+									<!-- Logo -->
+										<h1><a id="logo">Cops On Stream</a></h1>
+
+									<!-- Nav -->
+                  <nav id="nav" style="display: flex;gap: 20px;font-size: 15px;">
+
+                    <a href="{% url 'my_case' %}" style="text-decoration: none;"><i class="fa fa-comments"></i><span>My
+                        Cases</span></a>
+      
+      
+                    <a href="{% url 'police_profile' %}" style="text-decoration: none;"><i class="fa fa-user"></i><span
+                        style="padding-left: 15px;">My Profile</span></a>
+      
+      
+                    <a href="{% url 'edit_police' id=user.id %}" style="text-decoration: none;"><i
+                        class="fas fa-user-edit"></i><span style="padding-left: 15px;">Edit Profile</span></a>
+      
+      
+                    <a href="{% url 'history' %}" style="text-decoration: none;"><i class="fa fa-envelope"></i><span
+                        style="padding-left: 15px;">History</span></a>
+      
+      
+                    <a href="{% url 'log_out' %}" style="text-decoration: none;"><i class="fa fa-sign-out"></i><span
+                        style="padding-left: 15px;">Logout</span></a>
+      
+                  </nav>
+
+								</div>
+							</header>
+
+					</div>
+				</div>
+
+
+            
+<!--{% block content %}-->
+<div class="page-header">
+<div class="row align-items-center">
+<div class="col">
+</div>
+</div>
+</div>
+<div class="container">
+  <div class="row">
+<table class="table"  style="margin: auto;margin-top:100px;">
+  <thead class="thead-dark" style="font-size:18px;color:#7ba0db;">
+    <tr style="margin-bottom:20px;">
+      <th scope="col" style="padding-bottom:50px;padding-right:20px;">Case ID</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Place</th>
+      <th scope="col">Date</th>
+        <th scope="col">Registered By</th>
+      <!-- <th scope="col">Culprit</th> -->
+      <th scope="col">Victim</th>
+      <th scope="col">Description</th>
+      <th scope="col">Status of the case</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody >
+  {% for i in case %}
+
+    <tr >
+      <td scope="row" style="padding-right:20px;padding-left:20px;">{{i.id}}</td>
+      <td>{{i.type}}</td>
+      <td>{{i.place}}</td>
+      <td>{{i.date}}</td>
+        <td>{{i.user}}</td>
+      <!-- <td>{{i.culprit}}</td> -->
+        <td>{{i.victim}}</td>
+      <td>{{i.describe}}</td>
+      <td>{{i.status}}</td>
+      {% if i.status == "Pending" %}
+      <td><a href="{% url 'edit_status' id=i.id %}" title="update case status"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+      </svg></a></td>
+      {% elif i.status == "Case_ongoing" %}
+      <td><a href="{% url 'edit_status' id=i.id %}" title="update case status"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+      </svg></a></td>
+      {% elif i.status == "Case_solved/closed" and i.feedback is not None %}  
+      <td><a href="{% url 'view_feedback' id=i.id %}" title="view feedback"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+      </svg></a></td>
+      {% else %}
+      <td>{{i.status}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      {% endif %}
+    </tr>
+  {% endfor %}
+
+
+  </tbody>
+</table>
+
+
+
+  </div>
+  </div>
+
+<!--{% endblock%}-->
+			<script src="{% static 'js/jquery.min.js' %}"></script>
+			<script src="{% static 'js/jquery.dropotron.min.js' %}"></script>
+			<script src="{% static 'js/browser.min.js' %}"></script>
+			<script src="{% static 'js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
+
+	</body>
+</html>

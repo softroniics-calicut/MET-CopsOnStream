@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+
+<head>
+  <style>
+    .container {
+      text-align: center;
+    }
+
+    .editform {
+      color: #a1aff7;
+    }
+  </style>
+
+  <title>Left Sidebar - ZeroFour by HTML5 UP</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+  @import url('//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css');
+
+  body {
+    color: white;
+    background: #293949;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sidebar-toggle {
+    margin-left: -240px;
+  }
+
+  .sidebar {
+    width: 240px;
+    height: 100%;
+    background: #293949;
+    position: absolute;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    z-index: 100;
+
+    #leftside-navigation {
+
+      ul,
+      ul ul {
+        margin: -2px 0 0;
+        padding: 0;
+      }
+
+      ul {
+        li {
+          list-style-type: none;
+          border-bottom: 1px solid rgba(255, 255, 255, .05);
+
+          &.active {
+            &>a {
+              color: #1abc9c;
+            }
+
+            ul {
+              display: block;
+            }
+          }
+
+          a {
+            color: #aeb2b7;
+            text-decoration: none;
+            display: block;
+            padding: 18px 0 18px 25px;
+            font-size: 12px;
+            outline: 0;
+            -webkit-transition: all 200ms ease-in;
+            -moz-transition: all 200ms ease-in;
+            -o-transition: all 200ms ease-in;
+            -ms-transition: all 200ms ease-in;
+            transition: all 200ms ease-in;
+
+            &:hover {
+              color: #1abc9c;
+            }
+
+            span {
+              display: inline-block;
+            }
+
+            i {
+              width: 20px;
+
+              .fa-angle-left,
+              .fa-angle-right {
+                padding-top: 3px;
+              }
+            }
+          }
+        }
+      }
+
+      ul ul {
+        display: none;
+
+        li {
+          background: #23313f;
+          margin-bottom: 0;
+          margin-left: 0;
+          margin-right: 0;
+          border-bottom: none;
+
+          a {
+            font-size: 12px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            color: #aeb2b7;
+          }
+        }
+      }
+    }
+  }
+</style>
+
+<body class="left-sidebar is-preload">
+  <div id="page-wrapper">
+
+    <!-- Header Wrapper -->
+    <div>
+      <div class="container">
+
+        <!-- Header -->
+        <header id="header">
+          <div class="inner">
+
+            <!-- Logo -->
+            <h1><a href="index.html" id="logo">Cops On Stream</a></h1>
+
+            <!-- Nav -->
+            <nav id="nav" style="display: flex;gap: 20px;font-size: 15px;">
+              <a style="text-decoration: none;" href="{% url 'show_complaint' %}"><i class="fa fa-comments"></i><span
+                  style="padding-left: 15px;">My Complaints</span></a>
+              <a style="text-decoration: none;" href="{% url 'file_complaint' id=user.id %}"><i
+                  class="fa fa-comments"></i><span style="padding-left: 15px;">Add a Complaint</span></a>
+              <a style="text-decoration: none;" href="{% url 'my_profile' id=user.id %}"><i class="fa fa-user"></i><span
+                  style="padding-left: 15px;">My Profile</span></a>
+              <a style="text-decoration: none;" href="{% url 'edit_user' id=user.id  %}"><i
+                  class="fas fa-user-edit"></i><span style="padding-left: 15px;">Edit Profile</span></a>
+              <a style="text-decoration: none;" href="{% url 'log_out' %}"><i class="fa fa-sign-out"></i><span
+                  style="padding-left: 15px;">Logout</span></a>
+
+            </nav>                                  
+
+          </div>
+        </header>
+
+      </div>
+    </div>
+
+
+    <div>
+      <form method="post" style="margin: auto;width: 50%;" enctype="multipart/form-data"
+        action="{% url 'edit_user' id=user.id %}">
+        {% csrf_token %}
+        <div style="">
+          <!--            {{ form.as_p }}-->
+          <div>
+
+            <label style="color:#7ba0db;padding-top:20px">First Name</label>
+            <input type="text" name="first_name" value="{{user.first_name}}">
+          </div>
+
+          <div>
+            <label style="color:#7ba0db;padding-top:20px">Last Name</label>
+            <input type="text" name="last_name" value="{{user.last_name}}">
+          </div>
+          <div>
+
+            <label style="color:#7ba0db;padding-top:20px">Username</label>
+            <input type="text" name="username" value="{{user.username}}">
+          </div>
+          <div>
+            <label style="color:#7ba0db;padding-top:20px">Email</label>
+            <input type="email" name="email" value="{{user.email}}">
+          </div>
+          <div>
+
+            <label style="color:#7ba0db;padding-top:20px">Phone</label>
+            <input type="number" style="width: 100%;border: none;height: 50px;border-radius: 7px;padding: 10px;"
+              name="phone" value="{{user.phone}}">
+          </div>
+          <div>
+
+            <label style="color:#7ba0db;padding-top:20px">Address</label>
+            <input type="text" name="address" value="{{user.address}}">
+          </div>
+          <div>
+
+            <label style="color:#7ba0db;padding-top:20px">Profile Picture</label>
+            <input type="file" name="pic" value="{{user.pic}}">
+          </div>
+
+        </div><br><br>
+        <div class="form-group">
+          <input class="btn btn-success" style="margin-bottom:40px;" type="submit" value="Submit">
+          <!--            <button type="submit" class="btn btn-primary">Submit</button>-->
+        </div>
+      </form>
+      {% if message4 %}
+      {{message4}}
+      {% endif %}
+    </div>
+
+    <!-- Scripts -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery.dropotron.min.js' %}"></script>
+    <script src="{% static 'js/browser.min.js' %}"></script>
+    <script src="{% static 'js/breakpoints.min.js' %}"></script>
+    <script src="{% static 'js/util.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
