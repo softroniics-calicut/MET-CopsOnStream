@@ -40,7 +40,7 @@ class Case(models.Model):
     place=models.CharField(max_length=50)
     # culprit=models.CharField(max_length=50, null=True, blank=True)
     victim=models.CharField(max_length=50, null=True, blank=True)
-    describe=models.CharField(max_length=50, null=True, blank=True)
+    describe=models.CharField(max_length=255, null=True, blank=True)
     user=models.ForeignKey(CustomUser,related_name='my_user',on_delete=models.CASCADE)
     police=models.ForeignKey(CustomUser,related_name='assigned_police',on_delete=models.CASCADE,blank=True,null=True)
     status_choices=(('Pending','Pending'),

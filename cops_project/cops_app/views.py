@@ -122,7 +122,7 @@ def log_out(request):
 
 
 
-
+##############################---------- POLICE ------------###################################
 
 
 
@@ -147,9 +147,6 @@ def edit_police(request,id):
         return render(request,'police_profile.html',{'police':police})
     else:
         return render(request,'edit_police.html',{'police':police})
-
-
-
 
 
 
@@ -243,7 +240,7 @@ def redir_police(request):
 
 
 
-
+##################################-------- USER -------##############################
 
 
 
@@ -317,9 +314,9 @@ def file_complaint(request,id):
 @login_required(login_url='/login/')
 def show_complaint(request):
     data=CustomUser.objects.get(id=request.user.id)
-    print(data)
+
     case=Case.objects.filter(user=data)
-    print(case)
+
     return render(request,'complaint_view.html',{'data':data,'case':case})
 
 def add_feedback(request,id):
