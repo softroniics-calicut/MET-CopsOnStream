@@ -42,4 +42,4 @@ admin.site.register(Case, CaseAdmin)
 admin.site.register(CustomUser, UserDetails)
 # admin.site.register(Notification)
 
-admin.site.site_header= 'Cops Project'
+admin.site.site_header= 'Cops On Stream'
